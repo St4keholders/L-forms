@@ -1,0 +1,420 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta L-Forms: Azul corporativo por defecto */
+  --color-brand: #0071e3;
+  --color-brand-dark: #0056b3;
+  --color-brand-soft: #e8f2fc;
+  --color-brand-tint: #f2f7fd;
+  --color-canvas: #f5f5f7;
+  --color-surface: #ffffff;
+  --color-ink: #1d1d1f;
+  --color-muted: #6e6e73;
+  --color-faint: #86868b;
+  --color-line: rgba(0, 0, 0, 0.08);
+  --color-danger: #ff3b30;
+  --color-success: #34c759;
+  --color-warning: #ff9500;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 20px;
+  --radius-squircle: 22px;
+  --radius-pill: 9999px;
+
+  --shadow-apple-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-apple-md: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+  --shadow-apple-lg: 0 12px 36px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+  --shadow-apple-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.06), inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.011em;
+}
+
+/* Foco accesible y elegante */
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   Materiales & Superficies: Liquid Glass & Frosted
+   ========================================================================== */
+
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(24px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.65) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.06), 0 1px 2px 0 rgba(0, 0, 0, 0.03) !important;
+}
+
+.liquid-glass-subtle {
+  background: rgba(255, 255, 255, 0.58) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+}
+
+.apple-segmented-container {
+  background: rgba(118, 118, 128, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 9999px;
+  padding: 3px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.apple-segmented-item {
+  position: relative;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 9999px;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #6e6e73;
+}
+
+.apple-segmented-item:hover {
+  color: #1d1d1f;
+}
+
+.apple-segmented-item-active {
+  background: #ffffff;
+  color: #1d1d1f !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   Tarjetas y Formas
+   ========================================================================== */
+
+/* Tarjeta base L-Forms con curvatura continua (squircle) */
+.lf-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-apple-sm);
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lf-card:hover {
+  box-shadow: var(--shadow-apple-md);
+}
+
+/* Indicador sutil de tarjeta activa */
+.lf-card-active {
+  border-left: 5px solid var(--color-brand);
+  box-shadow: var(--shadow-apple-md);
+}
+
+/* Estilos de tarjeta personalizables */
+.card-style-apple-clean {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.07) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.02) !important;
+}
+
+.card-style-liquid-glass {
+  background: rgba(255, 255, 255, 0.62) !important;
+  backdrop-filter: blur(28px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+  box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 1), 0 16px 40px -4px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Nuevo Estilo 1: Metalizado / Aluminio Cepillado */
+.card-style-metallic {
+  background: linear-gradient(135deg, #f2f5f8 0%, #e2e7ec 22%, #f8fafc 45%, #d8e0e6 70%, #edf1f5 100%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.08),
+    0 10px 32px -4px rgba(0, 0, 0, 0.12),
+    0 2px 6px 0 rgba(0, 0, 0, 0.04) !important;
+  color: #1d1d1f !important;
+}
+
+.card-style-metallic .text-ink {
+  color: #1d1d1f !important;
+}
+
+.card-style-metallic .text-muted {
+  color: #555e68 !important;
+}
+
+.card-style-metallic input,
+.card-style-metallic textarea {
+  color: #1d1d1f !important;
+}
+
+.card-style-metallic .bg-black\/\[0\.025\],
+.card-style-metallic .bg-black\/\[0\.03\],
+.card-style-metallic .bg-black\/\[0\.04\] {
+  background-color: rgba(255, 255, 255, 0.55) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Alias retroactivo */
+.card-style-dark-titanium {
+  background: linear-gradient(135deg, #f2f5f8 0%, #e2e7ec 22%, #f8fafc 45%, #d8e0e6 70%, #edf1f5 100%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
+    0 10px 32px -4px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Nuevo Estilo 2: Relieve Háptico / Bisel 3D (Sculpted Ceramic) */
+.card-style-embossed {
+  background: linear-gradient(145deg, #ffffff, #f0f2f7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 
+    10px 10px 28px -4px rgba(0, 0, 0, 0.08),
+    -10px -10px 28px 0px rgba(255, 255, 255, 0.95),
+    inset 1px 1px 2px rgba(255, 255, 255, 1) !important;
+}
+
+.card-style-bordered {
+  background: #ffffff !important;
+  border: 2.5px solid rgba(0, 0, 0, 0.18) !important;
+  box-shadow: none !important;
+}
+
+/* Retrocompatibilidad */
+.card-style-bento {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.07) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
+}
+.card-style-flat {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.07) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Halo luminoso perimetral (Card Glow) */
+.card-glow {
+  box-shadow: 0 0 38px 4px var(--glow-color, rgba(0, 113, 227, 0.35)), 0 10px 30px -5px rgba(0, 0, 0, 0.05) !important;
+}
+
+.card-style-liquid-glass.card-glow {
+  box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 1), 0 0 40px 4px var(--glow-color, rgba(0, 113, 227, 0.38)), 0 16px 40px -4px rgba(0, 0, 0, 0.08) !important;
+}
+
+.card-style-metallic.card-glow {
+  box-shadow: inset 0 1.5px 2px 0 rgba(255, 255, 255, 1), 0 0 38px 4px var(--glow-color, rgba(0, 113, 227, 0.4)), 0 12px 36px -4px rgba(0, 0, 0, 0.14) !important;
+}
+
+.card-style-dark-titanium.card-glow {
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.2), 0 0 45px 6px var(--glow-color, rgba(0, 113, 227, 0.45)), 0 20px 48px -10px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Opciones de pregunta interactivas */
+.apple-option-card {
+  border-radius: 14px;
+  border: 1.5px solid rgba(0, 0, 0, 0.07);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 14px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.apple-option-card:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 0, 0, 0.14);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.apple-option-card-selected {
+  background: #ffffff !important;
+  border-color: var(--color-brand) !important;
+  box-shadow: 0 4px 16px -2px rgba(0, 113, 227, 0.2) !important;
+}
+
+/* Radios de borde configurables */
+.radius-sm {
+  border-radius: 10px !important;
+}
+.radius-md {
+  border-radius: 16px !important;
+}
+.radius-lg {
+  border-radius: 24px !important;
+}
+.radius-full {
+  border-radius: 32px !important;
+}
+
+/* Formas de botón */
+.btn-pill {
+  border-radius: 9999px !important;
+}
+.btn-rounded {
+  border-radius: 14px !important;
+}
+
+/* ==========================================================================
+   Patrones y Fondos Dinámicos
+   ========================================================================== */
+
+@keyframes orb-float-1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(60px, 45px) scale(1.18);
+  }
+}
+
+@keyframes orb-float-2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-55px, 50px) scale(0.9);
+  }
+}
+
+@keyframes orb-float-3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(45px, -50px) scale(1.12);
+  }
+}
+
+.ambient-orb-1 {
+  animation: orb-float-1 16s ease-in-out infinite;
+}
+
+.ambient-orb-2 {
+  animation: orb-float-2 20s ease-in-out infinite;
+}
+
+.ambient-orb-3 {
+  animation: orb-float-3 24s ease-in-out infinite;
+}
+
+.bg-pattern-mesh {
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(0, 113, 227, 0.28) 0px, transparent 55%),
+    radial-gradient(at 90% 15%, rgba(175, 82, 222, 0.26) 0px, transparent 55%),
+    radial-gradient(at 30% 90%, rgba(48, 176, 199, 0.24) 0px, transparent 55%),
+    radial-gradient(at 85% 85%, rgba(255, 149, 0, 0.22) 0px, transparent 55%) !important;
+  background-attachment: fixed !important;
+}
+
+.bg-pattern-soft-glow {
+  background-image: 
+    radial-gradient(circle at 50% 0%, var(--glow-color, rgba(0, 113, 227, 0.35)) 0%, transparent 70%) !important;
+  background-attachment: fixed !important;
+}
+
+.bg-pattern-dots {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.22) 1.5px, transparent 1.5px) !important;
+  background-size: 24px 24px !important;
+}
+
+.bg-pattern-grid-lines {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px) !important;
+  background-size: 32px 32px !important;
+}
+
+/* Campo de texto con subrayado limpio */
+.lf-underline {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lf-underline:hover {
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+}
+.lf-underline:focus {
+  outline: none;
+  border-bottom: 2px solid var(--color-brand);
+}
+
+.lf-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.lf-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 999px;
+}
+.lf-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* Tipografias seleccionables */
+.font-theme-sf-pro {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Inter", sans-serif;
+  letter-spacing: -0.015em;
+}
+.font-theme-inter {
+  font-family: var(--font-inter), sans-serif;
+}
+.font-theme-grotesk {
+  font-family: var(--font-display);
+}
+.font-theme-serif {
+  font-family: "New York", Georgia, "Times New Roman", serif;
+}
+.font-theme-mono {
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, monospace;
+}
+/* compatibilidad retroactiva con temas antiguos */
+.font-theme-lora {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+@media print {
+  .lf-no-print {
+    display: none !important;
+  }
+}
+
