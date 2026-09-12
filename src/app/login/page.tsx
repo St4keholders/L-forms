@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button, Logo, TextField } from "@/components/ui";
@@ -53,10 +52,6 @@ export default function LoginPage() {
         </div>
 
         <div className="relative z-10 max-w-sm">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur-md mb-4 shadow-sm">
-            <span className="h-2 w-2 rounded-full bg-[#00f5a0] animate-pulse" />
-            L-Forms Studio
-          </div>
           <h1 className="font-[family-name:var(--font-display)] text-3xl leading-tight font-semibold text-white drop-shadow-sm">
             Preguntas, respuestas y firmas en un mismo lugar.
           </h1>
@@ -117,13 +112,6 @@ export default function LoginPage() {
               {busy ? "Entrando..." : "Iniciar sesion"}
             </Button>
           </form>
-
-          <p className="mt-6 text-sm text-muted">
-            No tienes cuenta?{" "}
-            <Link href="/signup" className="font-medium text-brand underline underline-offset-2">
-              Crea una
-            </Link>
-          </p>
         </div>
       </section>
     </main>
