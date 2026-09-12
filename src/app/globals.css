@@ -418,3 +418,147 @@ select {
   }
 }
 
+/* ==========================================================================
+   Efecto Aurora Borealis / OBS Aurora
+   ========================================================================== */
+
+@keyframes aurora-wave-1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    filter: blur(60px);
+  }
+  33% {
+    transform: translate(45px, -55px) rotate(20deg) scale(1.15);
+    filter: blur(80px);
+  }
+  66% {
+    transform: translate(-35px, 30px) rotate(-15deg) scale(0.95);
+    filter: blur(65px);
+  }
+}
+
+@keyframes aurora-wave-2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    filter: blur(75px);
+  }
+  33% {
+    transform: translate(-45px, 35px) rotate(-25deg) scale(1.18);
+    filter: blur(90px);
+  }
+  66% {
+    transform: translate(30px, -40px) rotate(15deg) scale(0.92);
+    filter: blur(70px);
+  }
+}
+
+@keyframes aurora-wave-3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    filter: blur(60px);
+  }
+  50% {
+    transform: translate(40px, 50px) scale(1.2);
+    filter: blur(75px);
+  }
+}
+
+@keyframes aurora-shape-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(5deg);
+  }
+}
+
+@keyframes aurora-shape-float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(14px) rotate(-6deg);
+  }
+}
+
+.aurora-container {
+  background: radial-gradient(circle at 15% 15%, #0248c7 0%, #032169 45%, #050d2e 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.aurora-beam-1 {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  top: -80px;
+  left: -60px;
+  background: radial-gradient(circle, #00f2fe 0%, #0070f3 55%, transparent 75%);
+  opacity: 0.6;
+  animation: aurora-wave-1 18s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+.aurora-beam-2 {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  bottom: -100px;
+  right: -80px;
+  background: radial-gradient(circle, #b827fc 0%, #3b1b6e 60%, transparent 80%);
+  opacity: 0.55;
+  animation: aurora-wave-2 22s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+.aurora-beam-3 {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  top: 35%;
+  left: 20%;
+  background: radial-gradient(circle, #00f5a0 0%, #00c6ff 45%, transparent 75%);
+  opacity: 0.45;
+  animation: aurora-wave-3 15s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+.aurora-glass-shape-1 {
+  position: absolute;
+  top: 14%;
+  right: 12%;
+  width: 130px;
+  height: 130px;
+  border-radius: 36px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: aurora-shape-float 12s ease-in-out infinite;
+}
+
+.aurora-glass-shape-2 {
+  position: absolute;
+  bottom: 18%;
+  left: 10%;
+  width: 170px;
+  height: 170px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  animation: aurora-shape-float-reverse 14s ease-in-out infinite;
+}
+
+.aurora-glass-shape-3 {
+  position: absolute;
+  top: 56%;
+  right: 16%;
+  width: 80px;
+  height: 80px;
+  border-radius: 26px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.35);
+  animation: aurora-shape-float 10s ease-in-out infinite;
+}
+
+

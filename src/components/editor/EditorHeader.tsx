@@ -3,14 +3,11 @@
 import clsx from "clsx";
 import {
   Eye,
-  Folder,
   Link2,
   MoreVertical,
   Palette,
   Redo2,
-  Star,
   Undo2,
-  UserPlus,
 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -53,7 +50,6 @@ export function EditorHeader({
   const past = useEditor((s) => s.past.length);
   const future = useEditor((s) => s.future.length);
   const saveState = useEditor((s) => s.saveState);
-  const [starred, setStarred] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -83,16 +79,6 @@ export function EditorHeader({
           className="min-w-0 flex-1 rounded-xl px-2.5 py-1 text-base font-semibold tracking-tight outline-none transition-colors hover:bg-black/[0.04] focus:bg-white focus:ring-1 focus:ring-[#0071E3] sm:max-w-md sm:flex-none"
         />
 
-        <IconButton label="Mover a una carpeta">
-          <Folder size={17} />
-        </IconButton>
-        <IconButton
-          label={starred ? "Quitar de destacados" : "Destacar"}
-          onClick={() => setStarred((v) => !v)}
-        >
-          <Star size={17} fill={starred ? "currentColor" : "none"} className={starred ? "text-[#FF9500]" : ""} />
-        </IconButton>
-
         <span className="ml-auto hidden text-xs font-medium text-muted sm:block">
           {saveState === "saving" && "Guardando..."}
           {saveState === "saved" && "Guardado"}
@@ -114,9 +100,6 @@ export function EditorHeader({
           </IconButton>
           <IconButton label="Enviar y compartir" onClick={onOpenShare}>
             <Link2 size={17} />
-          </IconButton>
-          <IconButton label="Anadir colaboradores" onClick={onOpenShare}>
-            <UserPlus size={17} />
           </IconButton>
 
           <Button

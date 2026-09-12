@@ -34,18 +34,39 @@ export default function LoginPage() {
 
   return (
     <main className="grid min-h-screen lg:grid-cols-[1fr_1.1fr]">
-      <section className="hidden flex-col justify-between bg-brand p-10 text-white lg:flex">
-        <Logo />
-        <div className="max-w-sm">
-          <h1 className="font-[family-name:var(--font-display)] text-3xl leading-tight font-semibold">
+      <section className="aurora-container relative hidden flex-col justify-between p-10 text-white lg:flex">
+        {/* Haces de luz dinámicos Aurora */}
+        <div className="aurora-beam-1 pointer-events-none" aria-hidden="true" />
+        <div className="aurora-beam-2 pointer-events-none" aria-hidden="true" />
+        <div className="aurora-beam-3 pointer-events-none" aria-hidden="true" />
+
+        {/* Formas geométricas flotantes estilo Aurora / OBS */}
+        <div className="aurora-glass-shape-1 pointer-events-none" aria-hidden="true" />
+        <div className="aurora-glass-shape-2 pointer-events-none" aria-hidden="true" />
+        <div className="aurora-glass-shape-3 pointer-events-none" aria-hidden="true" />
+
+        {/* Capa de contraste y micro-blur */}
+        <div className="pointer-events-none absolute inset-0 bg-black/10 backdrop-blur-[1px]" aria-hidden="true" />
+
+        <div className="relative z-10">
+          <Logo />
+        </div>
+
+        <div className="relative z-10 max-w-sm">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur-md mb-4 shadow-sm">
+            <span className="h-2 w-2 rounded-full bg-[#00f5a0] animate-pulse" />
+            L-Forms Studio
+          </div>
+          <h1 className="font-[family-name:var(--font-display)] text-3xl leading-tight font-semibold text-white drop-shadow-sm">
             Preguntas, respuestas y firmas en un mismo lugar.
           </h1>
-          <p className="mt-4 text-sm text-white/80">
-            Crea un formulario desde una plantilla, compartelo con un enlace y revisa las
+          <p className="mt-4 text-sm text-white/85 leading-relaxed">
+            Crea un formulario desde una plantilla, compártelo con un enlace o código QR y revisa las
             respuestas a medida que llegan.
           </p>
         </div>
-        <p className="text-xs text-white/40">© L-Forms</p>
+
+        <p className="relative z-10 text-xs text-white/50">© L-Forms</p>
       </section>
 
       <section className="flex items-center justify-center px-5 py-12">
