@@ -5,8 +5,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button, Logo, TextField } from "@/components/ui";
 import { useAuth } from "@/lib/auth";
-import { isMock } from "@/lib/data";
-import { DEMO_CREDENTIALS } from "@/lib/data/mock";
 
 export default function LoginPage() {
   const { signIn, user, loading } = useAuth();
@@ -34,11 +32,6 @@ export default function LoginPage() {
     }
   }
 
-  function useDemo() {
-    setEmail(DEMO_CREDENTIALS.email);
-    setPassword(DEMO_CREDENTIALS.password);
-  }
-
   return (
     <main className="grid min-h-screen lg:grid-cols-[1fr_1.1fr]">
       <section className="hidden flex-col justify-between bg-brand p-10 text-white lg:flex">
@@ -52,7 +45,7 @@ export default function LoginPage() {
             respuestas a medida que llegan.
           </p>
         </div>
-        <p className="text-xs text-white/60">{isMock ? "Modo Demo" : "Conectado con Supabase"}</p>
+        <p className="text-xs text-white/40">© L-Forms</p>
       </section>
 
       <section className="flex items-center justify-center px-5 py-12">
@@ -103,22 +96,6 @@ export default function LoginPage() {
               {busy ? "Entrando..." : "Iniciar sesion"}
             </Button>
           </form>
-
-          {isMock && (
-            <div className="mt-6 rounded-lg border border-line bg-brand-tint px-4 py-3 text-sm">
-              <p className="font-medium">Cuenta de prueba</p>
-              <p className="mt-1 text-muted">
-                {DEMO_CREDENTIALS.email} · {DEMO_CREDENTIALS.password}
-              </p>
-              <button
-                type="button"
-                onClick={useDemo}
-                className="mt-2 text-sm font-medium text-brand underline underline-offset-2"
-              >
-                Rellenar con estos datos
-              </button>
-            </div>
-          )}
 
           <p className="mt-6 text-sm text-muted">
             No tienes cuenta?{" "}
